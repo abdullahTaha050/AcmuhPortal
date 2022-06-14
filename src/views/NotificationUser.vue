@@ -74,7 +74,7 @@ export default {
         this.isActiveDepartment = false;
         this.notifications = null;
       }
-      let endPoint = 'Notice/getbydepartmentid?id=4';
+      let endPoint = 'Notice/getbydepartmentid?id=5';
 
       await this.$axios.get(this.$apiUrl + endPoint,
           {headers: {

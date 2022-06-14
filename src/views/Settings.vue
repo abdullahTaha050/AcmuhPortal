@@ -25,7 +25,7 @@
                         <div>
                           <label class="form-label">Mevcut Bölümler</label>
                           <select class="form-select">
-                            <option  v-for="item in departments[0]" :value="item.id" :key="item.id">{{item.departmentName}}</option>
+                            <option  v-for="item in departments" :value="item.id" :key="item.id">{{item.departmentName}}</option>
                           </select>
                         </div>
                       </b-card-text>
@@ -76,7 +76,7 @@ export default {
       return{
         excelFile:"",
         excelFileTwo:"",
-        departments: [{departmentName: "Bölümler Bulunamadı."}],
+        departments: null,
         newDepartmentName: "",
         newDepartmentLoader: false,
         excelLoader: false,
@@ -119,9 +119,9 @@ export default {
             }})
           .then(response => {
             this.disableLoader("add-excel");
-            let datas = response.data.data;
-            for(var item in datas){
-              this.departments.push(datas)
+            if (response.data.data.length > 0){
+              this.departments = response.data.data;
+              console.log(this.departments)
             }
           })
           .catch(e => {

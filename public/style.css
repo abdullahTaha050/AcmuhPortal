@@ -1,0 +1,109 @@
+/* General */
+.font-weight-bold{
+    font-weight: bold!important
+}
+.montserrat{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold
+}
+.bg-light-blue{
+    background-color:#00a3ca!important;
+    color: #fff!important
+}
+.form-group{
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+/* Login */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+.img-login-logo{
+    max-width: 30%;
+    height: auto;
+}
+
+.img-sidebar-logo{
+    max-width: 60%;
+    height: auto;
+    margin-left: 1.6rem;
+}
+
+.img-sidebar-collapsed-logo{
+    max-width: 100%;
+    height: auto;
+}
+
+.login-form *{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.login-form{
+    padding-left: 12rem!important;
+    padding-top: 1.5rem;
+}
+
+.login-form label{
+    background-color: #fff!important;
+    color: #11457c;
+    border-color: #11457c!important;
+    padding: .2rem .3rem!important;
+    position: absolute;
+    top: -1px;
+    left: 9px;
+}
+
+.form-control{
+    font-size: .9rem!important;
+}
+
+.form-control:focus{
+    padding-top: .9rem!important;
+    padding-bottom: .7rem!important;
+}
+
+/* mobile */
+
+/* login */
+@media only screen and (max-width: 600px) {
+    .login-form{
+        padding-left: 0!important;
+    }
+    .login-form label{
+        background-color: #fff!important;
+        padding: .2rem .3rem!important;
+        position: absolute;
+        top: -1px;
+        left: 9px;
+    }
+/* dasbhboard*/
+
+    .mobile{
+        margin-left: 5.7rem!important;
+    }
+  }
+
+/* Notice */
+
+.long-notice-content-hidden{
+    max-width: 4rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.table th, .table td{
+    text-align: center;
+}
+.table thead{
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    border-bottom: 2px solid #000;
+    /*z-index: 1;*/
+}
+
+.card-deck .card img{
+    max-width: 30%;
+}
+

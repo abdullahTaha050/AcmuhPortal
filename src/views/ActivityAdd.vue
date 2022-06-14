@@ -3,9 +3,9 @@
     <div class="d-flex justify-content-center pt-5">
       <Sidebar/>
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8 text">
           <form @submit.prevent="onSubmit()" enctype="multipart/form-data">
-            <div class="mt-5">
+            <b-card-group deck class="mt-6 deneme">
               <h2 class="text-center p-2">İçerik</h2>
               <VueEditor v-model="post.content" />
               <div class="form-group">
@@ -30,7 +30,7 @@
                 </div>
               </div>
               <button type="submit" class="btn btn-info mt-5">Kaydet</button>
-            </div>
+            </b-card-group>
           </form>
         </div>
       </div>
@@ -143,4 +143,16 @@ export default {
       @import '~quill/dist/quill.core.css';
       @import '~quill/dist/quill.bubble.css';
       @import '~quill/dist/quill.snow.css';
+
+
+  
+  .deneme{
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.35);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 40px;
+  }
+  .text{
+    margin: auto;
+  }
 </style>
