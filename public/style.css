@@ -6,6 +6,9 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: bold
 }
+.joan{
+    font-family: 'Secular One', sans-serif;
+}
 .bg-light-blue{
     background-color:#00a3ca!important;
     color: #fff!important
@@ -17,6 +20,7 @@
 
 /* Login */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
 
 .img-login-logo{
     max-width: 30%;
@@ -104,6 +108,23 @@
 }
 
 .card-deck .card img{
-    max-width: 30%;
+    /* max-width: 17rem;
+    height: 15rem!important;
+    object-fit: cover!important;
+    object-position: center; */
+    width: 40%;
+    height: 291px;
+    text-align: center;
+    object-fit: cover;
 }
+
+.mx-notice{
+    margin-right: 3rem !important;
+    margin-left: 9rem !important;
+}
+
+.notice-detail-font-size{
+    font-size: 1.1rem;
+}
+
 
