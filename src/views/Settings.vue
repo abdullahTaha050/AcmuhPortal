@@ -110,7 +110,6 @@ export default {
       this.excelLoader= false;
     },
     async getDepartmentData(){
-      this.enableLoader("add-excel");
       let endPoint = 'Department/getall';
       await this.$axios.get(this.$apiUrl + endPoint,
           {headers: {
