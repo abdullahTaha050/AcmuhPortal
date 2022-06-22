@@ -74,7 +74,7 @@ export default {
         this.isActiveDepartment = false;
         this.activities = null;
       }
-      let endPoint = 'Activity/getbydepartmentid?id=4';
+      let endPoint = 'Activity/getbydepartmentid?id=5';
 
       await this.$axios.get(this.$apiUrl + endPoint,
           {headers: {
