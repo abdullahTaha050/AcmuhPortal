@@ -1,24 +1,11 @@
 <template>
-    <div style="overflow-y:scroll; height: 300px">
-           <table class="table table-hover">
-             <thead>
-             <tr>
-               <th scope="col">İsim</th>
-               <th scope="col">Soyad</th>
-               <th scope="col">Bölüm</th>
-               <th scope="col">Okul Numrası</th>
-             </tr>
-             </thead>
-             <tbody>
-             <tr v-for="item in data" :key="item.id">
-               <td colspan="1">{{item.firstName}}</td>
-               <td colspan="1">{{item.lastName}}</td>
-               <td colspan="1">{{item.departmentName}}</td>
-               <td colspan="1">{{item.schoolNumber}}</td>
-             </tr>
-             </tbody>
-           </table>
-    </div>
+  <v-card elevation="2" class="p-2">
+    <v-data-table
+        :headers="headers"
+        :items="data"
+        :items-per-page="5"
+        class="elevation-1"></v-data-table>
+  </v-card>
 </template>
 <script>
 export default {
@@ -28,7 +15,13 @@ export default {
   },
   data(){
     return {
-      isLoading: true
+      isLoading: true,
+      headers: [
+        { text: 'Ad', align: 'start', value: 'firstName'},
+        { text: 'Soyad', value: 'lastName' },
+        { text: 'Bölüm', value: 'departmentName' },
+        { text: 'Okul Numarası', value: 'schoolNumber' }
+      ],
     }
   },
 }

@@ -1,5 +1,5 @@
 <template>
-    <div style="overflow-y:scroll; height: 300px">
+    <div>
            <table class="table table-hover">
              <thead>
              <tr>
