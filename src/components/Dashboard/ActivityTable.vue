@@ -56,7 +56,7 @@ export default {
           .catch(e => console.log(e))
     },
     async deleteActivity(id){
-      let text = "Duyuruyu Silmek İstediğinize Emin Misiniz?";
+      let text = "Etkinliği Silmek İstediğinize Emin Misiniz?";
       if (confirm(text)) {
 
         let endPoint = 'Activity/delete';

@@ -14,6 +14,7 @@
       <SidebarLink to="/exam-system" icon="fas fa-users" activePage="/exam-system" :collapsed="collapsed">Sınav Sistemi</SidebarLink>
       <SidebarLink to="/student-communities" icon="fas fa-comments" activePage="/student-communities" :collapsed="collapsed">Öğrenci Toplukları</SidebarLink>
       <SidebarLink to="/settings" icon="fas fa-gear" activePage="/settings" :collapsed="collapsed">Ayarlar</SidebarLink>
+      <SidebarLink to="/help" icon="fa-solid fa-circle-question" activePage="/help" :collapsed="collapsed">Yardım</SidebarLink>
     </div>
 
     <div class="pt-5" v-else>
@@ -21,15 +22,15 @@
       <SidebarLink to="/user/activity" icon="fas fa-image" activePage="/user/activity" :collapsed="collapsed">Etkinlikler </SidebarLink>
       <SidebarLink to="/exam-system" icon="fas fa-users" activePage="/exam-system" :collapsed="collapsed">Sınav Sistemi</SidebarLink>
       <SidebarLink to="/student-communities" icon="fas fa-comments" activePage="/student-communities" :collapsed="collapsed">Öğrenci Toplukları</SidebarLink>
-
+      <SidebarLink to="/help" icon="fa-solid fa-circle-question" activePage="/help" :collapsed="collapsed">Yardım</SidebarLink>
     </div>
 
     <a @click="logout">
       <i class="fas fa-right-from-bracket pt-2"></i>
       </a>
-    <span class="collapse-icon" :class="{ 'rotate-180': collapsed }" @click="toggleSidebar()">
-      <i class="fas fa-angle-double-left" />
-    </span>
+<!--    <span class="collapse-icon" :class="{ 'rotate-180': collapsed }" @click="toggleSidebar()">-->
+<!--      <i class="fas fa-angle-double-left" />-->
+<!--    </span>-->
   </div>
 </template>
 

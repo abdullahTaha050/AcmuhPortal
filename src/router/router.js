@@ -18,6 +18,7 @@ import StudentCommunities from "../views/StudentCommunities.vue"
 import store from "../store/store"
 import NotificationEdit from "../views/NotificationEdit";
 import NotificationDetail from "../views/NotificationDetail";
+import Help from "@/views/Help";
 
 
 Vue.use(VueRouter);
@@ -209,6 +210,18 @@ export const router = new VueRouter({
                     next()
                 } else {
                     next("/user/notification")
+                }
+            }
+        },
+        {
+            path: "/help",
+            component: Help,
+            // eslint-disable-next-line no-unused-vars
+            beforeEnter(to, from, next){
+                if (store.getters.isAuthenticated) {
+                    next()
+                } else {
+                    next("/auth")
                 }
             }
         },
