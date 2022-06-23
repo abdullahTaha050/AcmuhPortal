@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import { router } from "./router/router"
 import store from "./store/store"
-import 'bootstrap/dist/css/bootstrap.css' 
+import 'bootstrap/dist/css/bootstrap.css'
 import * as axiosHelper from './helpers/AxiosHelper'
 import Vuelidate from "vuelidate"
 import Vue2Editor from "vue2-editor";
@@ -12,6 +12,7 @@ import VueCookies from 'vue-cookies'
 import "vue-toastification/dist/index.css";
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import { BootstrapVue, BootstrapVueIcons , IconsPlugin } from 'bootstrap-vue'
+import vuetify from './plugins/vuetify'
 
 
 Vue.config.productionTip = false
@@ -29,5 +30,6 @@ new Vue({
   router,
   axiosHelper,
   router,
-  store,
+  vuetify,
+  store
 }).$mount('#app')
