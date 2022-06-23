@@ -1,6 +1,6 @@
 <template>
-    <div>
-           <table class="table table-hover">
+    <v-card elevation="2" class="p-2">
+           <v-simple-table class="table table-hover">
              <thead>
              <tr>
                <th scope="col">Başlık</th>
@@ -15,13 +15,13 @@
                <td colspan="1" class="long-notice-content-hidden" v-html="item.content"></td>
                <td colspan="1">{{item.departmentName}}</td>
                <td>
-                 <router-link :to="'notification/'+item.id" tag="a" class="btn btn-primary">Düzenle</router-link>
+                 <router-link :to="'notification/'+item.id" tag="a" style="margin-right: .8rem" class="btn btn-primary">Düzenle</router-link>
                  <a @click="deleteNotification(item.id)" class="btn btn-danger">Sil</a>
                </td>
              </tr>
              </tbody>
-           </table>
-    </div>
+           </v-simple-table>
+    </v-card>
 </template>
 <script>
 export default {

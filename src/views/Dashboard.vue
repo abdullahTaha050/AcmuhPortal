@@ -9,11 +9,11 @@
           <UserTable v-if="users" :data="users"/>
           <BaseLoading v-else/>
         </div>
-        <div>
-          <router-link :to="'/user/notification'" tag="a" class="btn btn-success mt-5">Duyuru Sayfası</router-link>
-          <router-link :to="'/user/activity'" tag="a" class="btn btn-warning mt-5">Etkinlik Sayfası</router-link>
-        </div>
-
+        <v-card elevation="2" class="p-3 mt-5">
+          <h4>Kullanıcı Sayfaları</h4>
+          <router-link :to="'/user/notification'" tag="a" class="btn btn-success mt-5" style="margin-right: 1rem">Duyuru Sayfası</router-link>
+          <router-link :to="'/user/activity'" tag="a" class="btn btn-warning mt-5" >Etkinlik Sayfası</router-link>
+        </v-card>
       </div>
   </div>
 </template>

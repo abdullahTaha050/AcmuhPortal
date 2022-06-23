@@ -1,11 +1,14 @@
 <template>
-  <v-card elevation="2" class="p-2">
-    <v-data-table
-        :headers="headers"
-        :items="data"
-        :items-per-page="5"
-        class="elevation-1"></v-data-table>
-  </v-card>
+  <div>
+    <h3 class="mb-3">Kullanıcılar</h3>
+    <v-card elevation="2" class="p-2">
+      <v-data-table
+          :headers="headers"
+          :items="data"
+          :items-per-page="5"
+          class="elevation-1"></v-data-table>
+    </v-card>
+  </div>
 </template>
 <script>
 export default {
@@ -15,7 +18,6 @@ export default {
   },
   data(){
     return {
-      isLoading: true,
       headers: [
         { text: 'Ad', align: 'start', value: 'firstName'},
         { text: 'Soyad', value: 'lastName' },

@@ -20,6 +20,21 @@
                   </div>
                   <div class="col-md-6">
                     <b-card class="shadow-sm">
+                      <h5 class="pb-3">Eklenen Kullanıcılara Yetki Vermek İçin Ekle</h5>
+                      <form @submit.prevent="onSubmitTwo" enctype="multipart/form-data">
+                        <div>
+                          <input id="excel" type="file" @change="uploadExcelTwo" ref="excelFile2" class="form-control">
+                        </div>
+                        <div class="pt-3 text-end">
+                          <button id="add-excel" class="btn btn-primary" type="submit">
+                            <b-spinner v-if="excelLoader" small></b-spinner>  Kaydet
+                          </button>
+                        </div>
+                      </form>
+                    </b-card>
+                  </div>
+                  <div class="col-md-6 mt-3">
+                    <b-card class="shadow-sm">
                       <h5 class="pb-3">Yeni Bölüm Ekle</h5>
                       <b-card-text>
                         <div>
@@ -43,21 +58,7 @@
                       </b-card-text>
                     </b-card>
                   </div>
-                    <div class="col-md-6">
-                      <b-card class="shadow-sm">
-                        <h5 class="pb-3">Eklenen Kullanıcılara Yetki Vermek İçin Ekle</h5>
-                        <form @submit.prevent="onSubmitTwo" enctype="multipart/form-data">
-                          <div>
-                            <input id="excel" type="file" @change="uploadExcelTwo" ref="excelFile2" class="form-control">
-                          </div>
-                          <div class="pt-3 text-end">
-                            <button id="add-excel" class="btn btn-primary" type="submit">
-                              <b-spinner v-if="excelLoader" small></b-spinner>  Kaydet
-                            </button>
-                          </div>
-                        </form>
-                      </b-card>
-                    </div>
+
                   </div>
         </div>
     </div>
@@ -120,7 +121,6 @@ export default {
             this.disableLoader("add-excel");
             if (response.data.data.length > 0){
               this.departments = response.data.data;
-              console.log(this.departments)
             }
           })
           .catch(e => {
