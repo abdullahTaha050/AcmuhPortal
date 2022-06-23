@@ -3,24 +3,24 @@
     <Sidebar/>
     <div class="container">
       <h1 class="font-weight-bold text-center">Yemekhane Sistemi</h1>
-<!--          <iframe-->
-<!--            src="../assets/pdf/Facial_Feature_Selection_for_Gender_Reco.pdf"-->
-<!--            width="100%"-->
-<!--            height="100"-->
-<!--            frameborder="0" >-->
-<!--           </iframe>-->
-      <b-card class="shadow-sm">
+          <embed
+              :src="this.$apiFileUrl + 'staticfiles/haziran_yemek.pdf'"
+              type="application/pdf"
+            width="100%"
+            height="800px"
+            frameborder="0" >
+<!--      <b-card class="shadow-sm">-->
 
-        <div v-for="item in cafeterias[0]" :key="item.id">{{item.title}}
+<!--        <div v-for="item in cafeterias[0]" :key="item.id">{{item.title}}-->
 
-        <embed v-if="item.pdfFile != null"
-            :src="this.$apiFileUrl+'staticfiles/'+item.pdfPath"
-            type="application/pdf"
-            width="550"
-            height="440"
-        />
-        </div>
-      </b-card>
+<!--        <embed v-if="item.pdfFile != null"-->
+<!--            :src="this.$apiFileUrl+'staticfiles/'+item.pdfPath"-->
+<!--            type="application/pdf"-->
+<!--            width="550"-->
+<!--            height="440"-->
+<!--        />-->
+<!--        </div>-->
+<!--      </b-card>-->
     </div>
   </div>
 </template>
