@@ -75,7 +75,6 @@ export default {
       let id = this.$store.getters.getUser[0].id;
       // this.post.userId = this.$store.getters.getUser[0].id;
       this.post.userId = id;
-      console.log(id)
     },
     async getDepartmentData(){
       let endPoint = 'Department/getall';

@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+      <h2 class="pt-3 text-center font-weight-bold">AYARLAR</h2>
         <div class="pt-5">
             <Sidebar/>
                 <div class="row">
@@ -58,8 +59,29 @@
                       </b-card-text>
                     </b-card>
                   </div>
-
+                  <div class="col-md-6 mt-3">
+                    <b-card class="shadow-sm">
+                      <h5 class="pb-3">Yemekhane Listesi Ekle</h5>
+                      <b-card-text>
+                        <form @submit.prevent="onSubmitCafeteria" enctype="multipart/form-data">
+                          <div class="mb-4">
+                            <label class="form-label" for="title">Başlık</label>
+                            <input id="title" v-model="cafeteriaTitle" type="text" class="form-control">
+                          </div>
+                          <div>
+                            <label class="form-label" for="title">Dosya</label>
+                            <input id="cafe" type="file" @change="uploadCafeteriaFile" ref="cafeteriaFile" class="form-control">
+                          </div>
+                          <div class="pt-3 text-end">
+                            <button id="add-cafe" class="btn btn-primary" type="submit">
+                              <b-spinner v-if="excelLoader" small></b-spinner>  Kaydet
+                            </button>
+                          </div>
+                        </form>
+                      </b-card-text>
+                    </b-card>
                   </div>
+                </div>
         </div>
     </div>
 </template>
@@ -77,6 +99,9 @@ export default {
       return{
         excelFile:"",
         excelFileTwo:"",
+        cafeteriaFile:"",
+        cafeteriaTitle:"",
+        userId:0,
         departments: null,
         newDepartmentName: "",
         newDepartmentLoader: false,
@@ -86,14 +111,18 @@ export default {
   },
   created() {
       this.getDepartmentData()
+      this.setUserId()
   },
   methods: {
-      uploadExcel(event) {
+    uploadExcel(event) {
       this.excelFile = event.target.files[0];
     },
-      uploadExcelTwo(event){
+    uploadExcelTwo(event){
       this.excelFileTwo = event.target.files[0];
-      },
+    },
+    uploadCafeteriaFile(event){
+      this.cafeteriaFile = event.target.files[0];
+    },
     enableLoader(id){
       let btn = document.getElementById(id);
       btn.disabled = true;
@@ -132,7 +161,6 @@ export default {
             });
           })
     },
-
     async addNewDepartment(){
       this.enableLoader("new-department");
       let endPoint = 'Department/add';
@@ -167,7 +195,6 @@ export default {
               "Authorization" : "Bearer "+ this.$store.getters.getToken
             }})
           .then(response => {
-            console.log(response)
             setTimeout(() => {
               this.$toast("Kullanıcılar eklendi.", {
                 timeout: 3000,
@@ -197,7 +224,6 @@ export default {
               "Authorization" : "Bearer "+ this.$store.getters.getToken
             }})
           .then(response => {
-            console.log(response)
             setTimeout(() => {
               this.$toast("Kullanıcılar eklendi.", {
                 timeout: 3000,
@@ -213,6 +239,39 @@ export default {
                 toastClassName: "bg-danger"
               });
             }, "1000")
+          })
+    },
+    setUserId(){
+      let id = this.$store.getters.getUser[0].id;
+      // this.post.userId = this.$store.getters.getUser[0].id;
+      this.userId = id;
+      console.log(id)
+    },
+    async onSubmitCafeteria(){
+      const formData = new FormData();
+      if (this.cafeteriaFile !== ""){
+        formData.append('pdfFile', this.cafeteriaFile, this.cafeteriaFile.name);
+        formData.append('title', this.cafeteriaTitle);
+        formData.append('userId', this.userId);
+      }
+      let endPoint = 'cafeteria/add';
+      await this.$axios.post(this.$apiUrl+ endPoint , formData,
+          {headers: {
+              "Content-Type": "multipart/form-data",
+              "Authorization" : "Bearer "+ this.$store.getters.getToken
+            }})
+          .then(response => {
+              this.$toast("Yemekhane bilgileri başarıyla eklendi.", {
+                timeout: 3000,
+                toastClassName: "bg-success"
+              });
+          })
+          .catch(e => {
+              this.$toast("Bir hata oluştu\n" +
+                  e, {
+                timeout: 3000,
+                toastClassName: "bg-danger"
+              });
           })
     }
   }
